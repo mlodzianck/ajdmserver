@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-Version: 1.0.0
+Bundle-Name: AgiScriptMapingOSGi Bundle
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: AgiScriptMapingOSGi
+Bundle-Activator: agi.mapping.ng.Activator
+Import-Package: org.osgi.framework;version="[1.4.0,1.4.0]"
+Import-Bundle: org.asteriskjava;version="[0.5.0.alpha,0.5.0.alpha]"
+

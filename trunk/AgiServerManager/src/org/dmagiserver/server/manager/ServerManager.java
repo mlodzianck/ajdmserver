@@ -5,12 +5,14 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import java.util.Properties;
 
 import org.dmagiserver.server.AgiServer;
 import org.dmagiserver.server.IAgiServer;
+import org.springframework.osgi.service.exporter.OsgiServiceRegistrationListener;
 
-public class ServerManager implements IServerManager {
+public class ServerManager implements IServerManager, OsgiServiceRegistrationListener {
 	static final int DEFAULT_SERVER_MAX_POOL_SIZE = 100;
 	static final int DEFAULT_SERVER_POOL_SIZE = 10;
 
@@ -125,6 +127,18 @@ public class ServerManager implements IServerManager {
 
 			}
 
+		
+	}
+
+	@Override
+	public void registered(Object arg0, Map arg1) throws Exception {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void unregistered(Object arg0, Map arg1) throws Exception {
+		shutdown();
 		
 	}
 

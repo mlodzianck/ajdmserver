@@ -10,7 +10,8 @@
 	
 	</bean>
 	<osgi:service id="ServerManager" ref="ServerManagerBean"
-		interface="org.dmagiserver.server.manager.IServerManager" >
+		interface="org.dmagiserver.server.manager.IServerManager"  >
+		<osgi:registration-listener ref="ServerManagerBean"></osgi:registration-listener>
 		
 		</osgi:service>
 </beans>

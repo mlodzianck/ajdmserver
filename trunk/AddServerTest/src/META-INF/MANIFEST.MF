@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-Version: 1.0.0
+Bundle-Name: AddServerTest Bundle
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: AddServerTest
+Import-Package: org.dmagiserver.server,
+ org.dmagiserver.server.manager,
+ org.osgi.framework;version="[1.4.0,1.4.0]"
+ 

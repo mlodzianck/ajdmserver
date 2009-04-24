@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Export-Package: org.dmagiserver.server;version="0";uses:="org.asterisk
+ java.fastagi",org.dmagiserver.server.manager;version="0"
+Bundle-Classpath: .
+Bundle-Version: 1.0.0
+Bundle-Name: AgiServerManager Bundle
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: AgiServerManager
+Import-Bundle: org.asteriskjava;version="[0.5.0.alpha,0.5.0.alpha]"
+

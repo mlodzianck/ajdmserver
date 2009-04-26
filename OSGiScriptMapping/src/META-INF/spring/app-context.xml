@@ -6,9 +6,9 @@
        http://www.springframework.org/schema/osgi  
        http://www.springframework.org/schema/osgi/spring-osgi.xsd">
 	<osgi:service id="MappingStrategy"
-		interface="org.dmagiserver.mapping.IOSGiMappingStrategy">
+		interface="org.dmagiserver.mapping.IOSGiMappingFactory">
 		<bean id="MappingStrategyBean" scope="bundle"
-			class="org.dmagiserver.mapping.impl.OSGiMappingStrategy">
+			class="org.dmagiserver.mapping.impl.OSGiMappingFactory">
 			<property name="bundleContext" ref="bundleContext" />
 
 

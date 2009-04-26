@@ -11,7 +11,7 @@ public class test {
 	public test(BundleContext bc) {
 		Properties p=new Properties();
 		p.put(IAgiServer.SERVER_DOMAIN, "domain1");
-		p.put(IAgiServer.SERVER_PORT, "5709");
+		p.put(IAgiServer.SERVER_PORT, "5715");
 		IServerManager manager;
 		
 		ServiceReference ref= bc.getServiceReference("org.dmagiserver.server.manager.IServerManager");

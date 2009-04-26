@@ -29,6 +29,8 @@ public class OSGiMappingStrategy implements IOSGiMappingStrategy, BundleContextA
 		try {
 			ServiceReference[] refs = bundleContext.getAllServiceReferences(
 					null, "(agiDomain=" + severDomain + ")");
+			//ServiceReference[] refs = bundleContext.getAllServiceReferences(
+			//		null, null);
 			if (refs==null) {
 				System.err.println("Nothing found for script " + arg0.getScript());
 				return null;

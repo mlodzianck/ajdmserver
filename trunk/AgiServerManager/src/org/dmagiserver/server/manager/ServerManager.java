@@ -25,7 +25,7 @@ public class ServerManager implements IServerManager, OsgiServiceRegistrationLis
 					|| !serverProperies.containsKey(IAgiServer.SERVER_PORT)) {
 				System.err.print("No " + IAgiServer.SERVER_DOMAIN + " or "
 						+ IAgiServer.SERVER_PORT
-						+ " property found\nSERVER WAS NOT ADDED");
+						+ " property found\nAt least theese two properties have to be defined\nSERVER WAS NOT ADDED");
 				return false;
 			}
 			String serverid = serverProperies

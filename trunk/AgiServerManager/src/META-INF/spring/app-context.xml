@@ -5,15 +5,15 @@
        http://www.springframework.org/schema/beans/spring-beans.xsd  
        http://www.springframework.org/schema/osgi  
        http://www.springframework.org/schema/osgi/spring-osgi.xsd">
-       
-       		<bean id="ServerManagerBean" class="org.dmagiserver.server.manager.ServerManager" >
-       		<property name="bundleContext" ref="bundleContext"></property>
- 				</bean>
-       
-       
+
+	<bean id="ServerManagerBean" class="org.dmagiserver.server.manager.ServerManager">
+		<property name="bundleContext" ref="bundleContext" />
+	</bean>
+
+
 	<osgi:service id="ServerManager"
 		interface="org.dmagiserver.server.manager.IServerManager" ref="ServerManagerBean">
-				<osgi:registration-listener ref="ServerManagerBean"/>
-		
+		<osgi:registration-listener ref="ServerManagerBean" />
+
 	</osgi:service>
 </beans>

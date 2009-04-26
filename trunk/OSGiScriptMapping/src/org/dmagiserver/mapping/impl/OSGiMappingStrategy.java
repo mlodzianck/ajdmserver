@@ -14,7 +14,7 @@ public class OSGiMappingStrategy implements IOSGiMappingStrategy, BundleContextA
 	private BundleContext bundleContext;
 	
 	public OSGiMappingStrategy() {
-		
+		System.err.println("Creating new instance of OSGiMappingStrategy");
 	}
 	public OSGiMappingStrategy(BundleContext bc, String servrDomain) {
 		this.severDomain = servrDomain;
@@ -29,6 +29,10 @@ public class OSGiMappingStrategy implements IOSGiMappingStrategy, BundleContextA
 		try {
 			ServiceReference[] refs = bundleContext.getAllServiceReferences(
 					null, "(agiDomain=" + severDomain + ")");
+			if (refs==null) {
+				System.err.println("Nothing found for script " + arg0.getScript());
+				return null;
+			}
 			for (int i = 0; i < refs.length; i++) {
 				ServiceReference ref = refs[i];
 				System.err.println("Got service from bundle "

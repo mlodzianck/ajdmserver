@@ -8,9 +8,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 
+import org.dmagiserver.mapping.IOSGiMappingFactory;
+import org.dmagiserver.mapping.IOSGiMappingStrategy;
 import org.dmagiserver.server.AgiServer;
 import org.dmagiserver.server.IAgiServer;
 import org.osgi.framework.BundleContext;
+import org.osgi.framework.ServiceReference;
 import org.springframework.osgi.context.BundleContextAware;
 import org.springframework.osgi.service.exporter.OsgiServiceRegistrationListener;
 
@@ -71,8 +74,18 @@ public class ServerManager implements IServerManager,
 			serverProperies.put("DeployTime", (Object) (new Date()));
 			IAgiServer s = new AgiServer();
 			s.setProperties(serverProperies);
+			ServiceReference ref=bc.getServiceReference("org.dmagiserver.mapping.IOSGiMappingFactory");
+			if (ref==null) {
+				System.err.println("No mapping strategy found, exitting");
+				return false;
+			}
+			IOSGiMappingFactory mappingStrategyFactory=(IOSGiMappingFactory)bc.getService(ref);
+			IOSGiMappingStrategy mappingStrategy =mappingStrategyFactory.getMappingStrategyForDomain(serverid);
+			s.setMappingStrategy(mappingStrategy);
 			servers.put(serverid, s);
-			System.err.println("Server deployed");
+			System.err.println("Server deployed with domainName "+serverid);
+			System.err.println("With mapping strategy "+mappingStrategy.toString());
+			System.err.println("Port "+serverProperies.getProperty(IAgiServer.SERVER_PORT));
 			if (autorun) {
 				((IAgiServer) servers.get(serverid)).startServer();
 				System.err.println("Server started");

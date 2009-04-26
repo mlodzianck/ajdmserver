@@ -28,9 +28,6 @@ public class AgiServer extends DefaultAgiServer implements IAgiServer, Runnable{
 		public void run() {
 			try {
 				setPort(Integer.parseInt(serverProps.getProperty((IAgiServer.SERVER_PORT))));
-				//setMappingStrategy(mappingStrategy);
-				//TODO FIXIT!!
-				setMappingStrategy(new ClassNameMappingStrategy());
 				setMaximumPoolSize(Integer.parseInt(serverProps.getProperty((IAgiServer.SERVER_MAX_POOL_SIZE))));
 				setPoolSize(Integer.parseInt(serverProps.getProperty((IAgiServer.SERVER_PORT))));
 				startup();
@@ -53,10 +50,7 @@ public class AgiServer extends DefaultAgiServer implements IAgiServer, Runnable{
 			
 		};
 		
-		@Override
-		public void setMappingStrategy(MappingStrategy mappingStrategy) {
-			this.mappingStrategy=mappingStrategy;
-		}
+		
 		 
 		
 		@Override

@@ -1,4 +1,4 @@
-package org.dmagiserver.server.manager;
+package org.dmagiserver.server.manager.impl;
 
 import java.util.Date;
 import java.util.HashMap;
@@ -10,8 +10,9 @@ import java.util.Properties;
 
 import org.dmagiserver.mapping.IOSGiMappingFactory;
 import org.dmagiserver.mapping.IOSGiMappingStrategy;
-import org.dmagiserver.server.AgiServer;
 import org.dmagiserver.server.IAgiServer;
+import org.dmagiserver.server.impl.AgiServer;
+import org.dmagiserver.server.manager.IServerManager;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceReference;
 import org.springframework.osgi.context.BundleContextAware;

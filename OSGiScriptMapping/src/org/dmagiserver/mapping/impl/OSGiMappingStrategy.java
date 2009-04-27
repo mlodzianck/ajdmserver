@@ -2,7 +2,6 @@ package org.dmagiserver.mapping.impl;
 
 import org.asteriskjava.fastagi.AgiRequest;
 import org.asteriskjava.fastagi.AgiScript;
-import org.asteriskjava.fastagi.MappingStrategy;
 import org.dmagiserver.IAgiScriptFactory;
 import org.dmagiserver.mapping.IOSGiMappingStrategy;
 import org.osgi.framework.BundleContext;

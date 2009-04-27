@@ -1,4 +1,4 @@
-package org.dmagiserver.server;
+package org.dmagiserver.server.impl;
 
 import java.io.IOException;
 import java.util.Properties;
@@ -6,6 +6,7 @@ import java.util.Properties;
 import org.asteriskjava.fastagi.ClassNameMappingStrategy;
 import org.asteriskjava.fastagi.DefaultAgiServer;
 import org.asteriskjava.fastagi.MappingStrategy;
+import org.dmagiserver.server.IAgiServer;
 
 public class AgiServer extends DefaultAgiServer implements IAgiServer, Runnable{
 		private Properties serverProps=new Properties();

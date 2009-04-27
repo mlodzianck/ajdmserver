@@ -6,7 +6,7 @@
        http://www.springframework.org/schema/osgi  
        http://www.springframework.org/schema/osgi/spring-osgi.xsd">
 
-	<bean id="ServerManagerBean" class="org.dmagiserver.server.manager.ServerManager">
+	<bean id="ServerManagerBean" class="org.dmagiserver.server.manager.impl.ServerManager">
 		<property name="bundleContext" ref="bundleContext" />
 	</bean>
 

@@ -62,6 +62,10 @@ public class OSGiMappingStrategy implements IOSGiMappingStrategy,
 							System.err.println("Getting AgiScript");
 							AgiScript script=((IAgiScriptFactory) bundleContext.getService(ref)).getScript();
 							System.err.println("Returning script "+script.toString());
+							if (script instanceof BundleContextAware) {
+								System.err.println("This script implements BundleContextAware interface. Adding bundleContext");
+								((BundleContextAware)script).setBundleContext(bundleContext);
+							}
 							return script;
 						}
 						

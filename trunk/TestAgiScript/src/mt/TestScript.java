@@ -8,7 +8,7 @@ import org.osgi.framework.Bundle;
 import org.osgi.framework.ServiceFactory;
 import org.osgi.framework.ServiceRegistration;
 
-public class TestScript implements AgiScript, ServiceFactory {
+public class TestScript implements AgiScript{
 	public TestScript() {
 		super();
 		System.out.println("TestScript.TestScript()");
@@ -20,19 +20,6 @@ public class TestScript implements AgiScript, ServiceFactory {
 		arg1.hangup();
 
 	}
-	@Override
-	public Object getService(Bundle arg0, ServiceRegistration arg1) {
-		return new TestScript();
-	}
 	
-	
-	public TestScript getBean() {
-		return new TestScript();
-	}
-	@Override
-	public void ungetService(Bundle arg0, ServiceRegistration arg1, Object arg2) {
-		// TODO Auto-generated method stub
-		
-	}
 
 }

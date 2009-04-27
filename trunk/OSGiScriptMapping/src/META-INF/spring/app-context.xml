@@ -5,6 +5,8 @@
        http://www.springframework.org/schema/beans/spring-beans.xsd  
        http://www.springframework.org/schema/osgi  
        http://www.springframework.org/schema/osgi/spring-osgi.xsd">
+
+
 	<osgi:service id="MappingStrategy"
 		interface="org.dmagiserver.mapping.IOSGiMappingFactory">
 		<bean id="MappingStrategyBean" scope="bundle"

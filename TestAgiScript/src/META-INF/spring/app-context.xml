@@ -6,8 +6,20 @@
        http://www.springframework.org/schema/osgi  
        http://www.springframework.org/schema/osgi/spring-osgi.xsd">
        <bean id="TestScriptBean" class="mt.TestScript" scope="bundle"/>
+       <bean id="TestScripFactoryBean" class="org.dmagiserver.scriptfactory.ScriptFactory">
+       		<property name="className" value="mt.TestScript"/>
+       </bean>
+       <!--  <osgi:service id="TestScript" ref="TestScriptBean" interface="org.asteriskjava.fastagi.AgiScript">
+       <osgi:service-properties>
+       		<entry key="agiRequestPattern" value=".+" /> 
+       		<entry key="agiDomain" value="domain1" /> 
+       		
        
-       <osgi:service id="TestScript" ref="TestScriptBean" interface="org.asteriskjava.fastagi.AgiScript">
+       
+       </osgi:service-properties>-->
+       
+       
+       <osgi:service id="TestScriptFActory" ref="TestScripFactoryBean" interface="org.dmagiserver.scriptfactory.IScriptFactory" >
        <osgi:service-properties>
        		<entry key="agiRequestPattern" value=".+" /> 
        		<entry key="agiDomain" value="domain1" /> 

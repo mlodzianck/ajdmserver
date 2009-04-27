@@ -4,4 +4,5 @@ Bundle-Name: TestAgiScript Bundle
 Bundle-ManifestVersion: 2
 Bundle-SymbolicName: TestAgiScript
 Import-Bundle: org.asteriskjava;version="[0.5.0.alpha,0.5.0.alpha]"
+Import-Package: org.dmagiserver.scriptfactory
 

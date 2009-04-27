@@ -6,7 +6,10 @@ import org.asteriskjava.fastagi.AgiRequest;
 import org.asteriskjava.fastagi.AgiScript;
 
 public class TestScript implements AgiScript {
-
+	public TestScript() {
+		super();
+		System.out.println("TestScript.TestScript()");
+	}
 	@Override
 	public void service(AgiRequest arg0, AgiChannel arg1) throws AgiException {
 		arg1.answer();

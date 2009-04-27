@@ -9,7 +9,7 @@
 
 	<osgi:service id="TestScriptFactory" interface="org.dmagiserver.IAgiScriptFactory">
 		<osgi:service-properties>
-			<entry key="agiRequestPattern" value=".+" />
+			<entry key="agiRequestPattern" value="InboundHandler.php" />
 			<entry key="agiDomain" value="domain1" />
 		</osgi:service-properties>
 		<bean id="TestScriptFactoryBean" class="mt.TestScriptFactory" />

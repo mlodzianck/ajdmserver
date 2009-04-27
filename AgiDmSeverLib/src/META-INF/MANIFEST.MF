@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Export-Package: org.dmagiserver;version="0";uses:="org.asteriskjava.fa
+ stagi",org.dmagiserver.mapping;version="0";uses:="org.asteriskjava.fa
+ stagi",org.dmagiserver.server;version="0";uses:="org.asteriskjava.fas
+ tagi",org.dmagiserver.server.manager;version="0"
+Bundle-Classpath: .
+Bundle-Version: 1.0.0
+Bundle-Name: AgiDmSeverLib Bundle
+Bundle-ManifestVersion: 2
+Import-Package: org.asteriskjava.fastagi
+Bundle-SymbolicName: AgiDmSeverLib
+

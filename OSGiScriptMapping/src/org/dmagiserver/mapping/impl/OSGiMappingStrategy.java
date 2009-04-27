@@ -4,18 +4,21 @@ import org.asteriskjava.fastagi.AgiRequest;
 import org.asteriskjava.fastagi.AgiScript;
 import org.asteriskjava.fastagi.MappingStrategy;
 import org.dmagiserver.mapping.IOSGiMappingStrategy;
+import org.dmagiserver.scriptfactory.IScriptFactory;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.InvalidSyntaxException;
 import org.osgi.framework.ServiceReference;
 import org.springframework.osgi.context.BundleContextAware;
 
-public class OSGiMappingStrategy implements IOSGiMappingStrategy, BundleContextAware {
+public class OSGiMappingStrategy implements IOSGiMappingStrategy,
+		BundleContextAware {
 	private String severDomain;
 	private BundleContext bundleContext;
-	
+
 	public OSGiMappingStrategy() {
 		System.err.println("Creating new instance of OSGiMappingStrategy");
 	}
+
 	public OSGiMappingStrategy(BundleContext bc, String servrDomain) {
 		this.severDomain = servrDomain;
 		this.bundleContext = bc;
@@ -29,10 +32,11 @@ public class OSGiMappingStrategy implements IOSGiMappingStrategy, BundleContextA
 		try {
 			ServiceReference[] refs = bundleContext.getAllServiceReferences(
 					null, "(agiDomain=" + severDomain + ")");
-			//ServiceReference[] refs = bundleContext.getAllServiceReferences(
-			//		null, null);
-			if (refs==null) {
-				System.err.println("Nothing found for script " + arg0.getScript());
+			// ServiceReference[] refs = bundleContext.getAllServiceReferences(
+			// null, null);
+			if (refs == null) {
+				System.err.println("Nothing found for script "
+						+ arg0.getScript());
 				return null;
 			}
 			for (int i = 0; i < refs.length; i++) {
@@ -46,7 +50,19 @@ public class OSGiMappingStrategy implements IOSGiMappingStrategy, BundleContextA
 					if (arg0.getScript().matches(reqPattern)) {
 						System.err
 								.println("Ok it matches- I  return script here");
-						return (AgiScript) bundleContext.getService(ref);
+						Object s = bundleContext.getService(ref);
+						if (s instanceof AgiScript) {
+							System.err.println("Casting to AgiScript");
+							return (AgiScript) bundleContext.getService(ref);
+
+						} else if (s instanceof IScriptFactory) {
+							System.err.println("Got script factory!");
+							return (AgiScript) ((IScriptFactory) bundleContext
+									.getService(ref)).getAgiScript();
+
+						}
+						System.err.println("No service found");
+						return null;
 					}
 				}
 
@@ -63,7 +79,7 @@ public class OSGiMappingStrategy implements IOSGiMappingStrategy, BundleContextA
 	public void setBundleContext(BundleContext arg0) {
 		this.bundleContext = arg0;
 	}
-	
+
 	public void setSeverDomain(String severDomain) {
 		this.severDomain = severDomain;
 	}

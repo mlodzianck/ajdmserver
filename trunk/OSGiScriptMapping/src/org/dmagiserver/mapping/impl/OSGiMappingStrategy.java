@@ -3,8 +3,8 @@ package org.dmagiserver.mapping.impl;
 import org.asteriskjava.fastagi.AgiRequest;
 import org.asteriskjava.fastagi.AgiScript;
 import org.asteriskjava.fastagi.MappingStrategy;
+import org.dmagiserver.IAgiScriptFactory;
 import org.dmagiserver.mapping.IOSGiMappingStrategy;
-import org.dmagiserver.scriptfactory.IScriptFactory;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.InvalidSyntaxException;
 import org.osgi.framework.ServiceReference;
@@ -52,17 +52,29 @@ public class OSGiMappingStrategy implements IOSGiMappingStrategy,
 								.println("Ok it matches- I  return script here");
 						Object s = bundleContext.getService(ref);
 						if (s instanceof AgiScript) {
+							System.err.println("Got AgiScript instance");
 							System.err.println("Casting to AgiScript");
-							return (AgiScript) bundleContext.getService(ref);
+							AgiScript script=(AgiScript) bundleContext.getService(ref);
+							System.err.println("Returning script "+script.toString());
+							return script;
 
-						} else if (s instanceof IScriptFactory) {
-							System.err.println("Got script factory!");
-							return (AgiScript) ((IScriptFactory) bundleContext
-									.getService(ref)).getAgiScript();
-
+						} if (s instanceof IAgiScriptFactory) {
+							System.err.println("Got AgiScript IAgiScriptFactory");
+							System.err.println("Getting AgiScript");
+							AgiScript script=((IAgiScriptFactory) bundleContext.getService(ref)).getScript();
+							System.err.println("Returning script "+script.toString());
+							return script;
 						}
-						System.err.println("No service found");
-						return null;
+						
+						
+						
+						else {
+							System.out.println("Imported service is not AgiScript type");
+							return null;
+							
+							
+						}
+						
 					}
 				}
 

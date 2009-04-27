@@ -7,4 +7,5 @@ public class TestScriptFactory  implements IAgiScriptFactory{
 		public AgiScript getScript() {
 			return new TestScript();
 		}
+		
 }

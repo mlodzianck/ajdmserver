@@ -5,31 +5,13 @@
        http://www.springframework.org/schema/beans/spring-beans.xsd  
        http://www.springframework.org/schema/osgi  
        http://www.springframework.org/schema/osgi/spring-osgi.xsd">
-	<bean id="TestScriptFact" class="mt.TestScriptFactory"></bean>
 
 
 	<osgi:service id="TestScriptFactory" interface="org.dmagiserver.IAgiScriptFactory">
 		<osgi:service-properties>
-				<entry key="agiRequestPattern" value=".+" />
-				<entry key="agiDomain" value="domain1" />
-
-
-
-			</osgi:service-properties>
-		
-		<bean id="TestScriptFactoryBean" class="mt.TestScriptFactory" >
-			
-		</bean>
-		<!--
-			<osgi:service id="TestScriptFActory" ref="TestScripFactoryBean"
-			interface="org.dmagiserver.scriptfactory.IScriptFactory" >
-			<osgi:service-properties> <entry key="agiRequestPattern" value=".+"
-			/> <entry key="agiDomain" value="domain1" />
-
-
-
-			</osgi:service-properties>
-		-->
-
+			<entry key="agiRequestPattern" value=".+" />
+			<entry key="agiDomain" value="domain1" />
+		</osgi:service-properties>
+		<bean id="TestScriptFactoryBean" class="mt.TestScriptFactory" />
 	</osgi:service>
 </beans>

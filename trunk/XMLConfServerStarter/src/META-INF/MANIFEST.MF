@@ -1,11 +1,11 @@
 Manifest-Version: 1.0
 Bundle-Classpath: .
 Bundle-Version: 1.0.0
-Bundle-Name: XMLServerStarter Bundle
+Bundle-Name: XMLConfServerStarter Bundle
 Bundle-ManifestVersion: 2
 Import-Package: javax.xml.namespace,javax.xml.parsers,javax.xml.xpath,
  org.dmagiserver.server.manager,org.springframework.core.io,org.w3c.do
  m
-Bundle-SymbolicName: XMLServerStarter
+Bundle-SymbolicName: XMLConfServerStarter
 Import-Bundle: AgiDmSeverLib;version="[1.0.0,1.0.0]"
 

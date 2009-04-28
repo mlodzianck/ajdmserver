@@ -36,5 +36,9 @@ There are three servers defined in this file
   # domain1 server listening on port 2234
   # domain3 server listening on port 2235
 
+serverPort and serverDomain are mandatory fields
+poolSize and maxPoolSize are optional 
+
+
 poolSize and maxPoolSize are parameters of DefaultAgiServer.
 Explanation of theese parameters can be found [http://asterisk-java.org/development/apidocs/org/asteriskjava/fastagi/AbstractAgiServer.html#setPoolSize(int) here] and [http://asterisk-java.org/development/apidocs/org/asteriskjava/fastagi/AbstractAgiServer.html#setMaximumPoolSize(int) here]

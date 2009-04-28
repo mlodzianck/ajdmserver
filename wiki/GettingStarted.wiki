@@ -9,7 +9,7 @@
 		* `asterisk-java-0.3.1.jar`
 		* `AgiDmServerLib.jar`
 	To directory 
-		`<dm_installation_path>\repository\libraries\usr\
+		`<dm_installation_path>`\repository\libraries\usr\
 
 ----
 =Deploying OSGiScriptMapping=

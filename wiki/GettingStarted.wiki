@@ -48,40 +48,13 @@ To install this bundle deploy it in web admin interface.
         * Bring up 'New' dialog clicking File -> New -> Other
         * Select 'Bundle Project'
         * Give name to your project and click finish
-        * In Servers view right click on your dmServer and select 'Add/Remove Project'
-        * Add new created Bundle Project to server's repository
-        * Next you have to add asterisk java library from dmServer repository: click on MANIFRST.MF and add asterisk-java bundle to class path
+        * In Servers view right click on your dmServer and select 'Add/Remove Project' and Add new created Bundle Project to server's repository
+        * Next you have to add asterisk-java library from dmServer repository: 
            *  double click on MANIFEST.MF file
            *  in bundle manifest click 'Dependencies' tab
            *  in 'Import Bundle' section click 'Add...' button
            *  in 'Bundle Selection' window choose org.asteriskjava 0.3.1 bundle
-        * create class that implements AgiScript interface - implement call control logic
-        * create folder 'spring' in META-INF folde
-        * create new xml file inside spring folder
-        * your xml file should look like exmaple:
-{{{
-
-<?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:osgi="http://www.springframework.org/schema/osgi"
-        xsi:schemaLocation="http://www.springframework.org/schema/beans  
-       http://www.springframework.org/schema/beans/spring-beans.xsd  
-       http://www.springframework.org/schema/osgi  
-       http://www.springframework.org/schema/osgi/spring-osgi.xsd">
-
-
-        <osgi:service id="YourScriptName" interface="org.asteriskjava.fastagi.AgiScript">
-                <osgi:service-properties>
-                        <entry key="agiRequestPattern" value="request_pattern" />
-                        <entry key="agiDomain" value="domain1" />
-                </osgi:service-properties>
-                <bean id="your script bean name" class="fqdn of your script class" />
-        </osgi:service>
-</beans>
-
-}}}
-Line  
-{{{
- <entry key="agiDomain" value="domain1" />
-}}}
-Defines FastAgi server's domain 
+        * create class that implements AgiScript interface - this is your script
+        * create new folder 'spring' in META-INF folder
+        * create new xml file inside spring folder, its name must match `*context.xml` pattern
+        * xml file syntax example and explanation can be found [script-context here] 

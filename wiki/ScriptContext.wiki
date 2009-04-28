@@ -16,9 +16,12 @@
 			<entry key="agiRequestPattern" value="HelloWorld" />
 			<entry key="agiDomain" value="domain1" />
 		</osgi:service-properties>
-		<bean id="ExampleScriptBean" class="my.package.Script" />
+		<bean class="my.package.Script" />
 	</osgi:service>
 </beans>
 }}}
 
-Most important (from ajdmserver point of view) is part enclosed in `<osgi:service></osgi:service>` tags
+Most important (from ajdmserver point of view) is part enclosed in `<osgi:service></osgi:service>` tags. It is OSGi service and spring anonymous bean definition wich provides osgi service. 
+
+Exported service must have two properties:
+  *  agiRequestPattern- it is regular expression pattern used by OSGiMappingStrategy to match [http://asterisk-java.org/latest/apidocs/org/asteriskjava/fastagi/AgiRequest.html#getScript() script name] from agi request with concrete script

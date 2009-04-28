@@ -13,7 +13,7 @@
 
 	<bean id="ConfigurableServerBean" class="org.dmagiserver.starter.XMLServerStarter"
 		init-method="install">
-		<property name="confFile" value="file:/etc/file.xml" />
+		<property name="confFile" value="file:/etc/agi-servers.xml" />
 		<property name="serverManager" ref="ServerManagerService" />
 		<property name="bundleContext" ref="bundleContext" />
 	</bean>

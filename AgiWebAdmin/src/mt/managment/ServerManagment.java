@@ -32,7 +32,7 @@ public class ServerManagment {
 				Properties properties = (Properties) itr.next();
 				String serverDomain=properties.getProperty(IAgiServer.SERVER_DOMAIN);
 				String serverPort=properties.getProperty(IAgiServer.SERVER_PORT);
-				ret+="Server domain "+serverDomain+"<br>Server Port"+serverPort;
+				ret+="<b>Server domain</b> "+serverDomain+"<br>Server Port "+serverPort;
 				ret+="</td></tr>";
 				
 			}

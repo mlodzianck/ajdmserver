@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-Version: 1.0.0
+Bundle-Name: AgiServerOsgiMappingMerge Bundle
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: AgiServerOsgiMappingMerge
+Import-Package: org.asteriskjava.fastagi,org.dmagiserver.mapping,org.d
+ magiserver.server,org.dmagiserver.server.manager,org.osgi.framework,o
+ rg.springframework.osgi.context,org.springframework.osgi.service.expo
+ rter
+Import-Bundle: org.asteriskjava;version="[0.5.0.alpha,0.5.0.alpha]",
+ AgiDmSeverLib;version="[1.0.0,1.0.0]"

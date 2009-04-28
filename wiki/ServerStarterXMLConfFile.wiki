@@ -1,5 +1,5 @@
-#summary One-sentence summary of this page.
-Example of agi-servers.xml file
+#summary Example of agi-servers.xml file
+
 
 
 {{{

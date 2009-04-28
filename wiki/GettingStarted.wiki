@@ -34,5 +34,12 @@
         * Give name to your project and click finish
         * In Servers view right click on your dmServer and select 'Add/Remove Project'
         * Add new created Bundle Project to server's repository
-        * Next you have to add asterisk java library from dmServer repository: click on MANIFRST.MF and add 
-        * 
+        * Next you have to add asterisk java library from dmServer repository: click on MANIFRST.MF and add asterisk-java bundle to class path
+        * create class that implements AgiScript interface - implement call control logic
+        * create folder 'spring' in META-INF folde
+        * create new xml file inside spring folder
+        * your xml file should look like exmaple:
+{{{
+
+
+}}}

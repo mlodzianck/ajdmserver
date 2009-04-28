@@ -1,3 +1,4 @@
+#summary How to start work with ajdmserver
 =Installing dmServer=
 	Please refer to http://static.springsource.com/projects/dm-server/1.0.x/getting-started/html/ch02.html
 ----

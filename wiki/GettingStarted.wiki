@@ -33,6 +33,6 @@
         * Select 'Bundle Project'
         * Give name to your project and click finish
         * In Servers view right click on your dmServer and select 'Add/Remove Project'
-        * Add your Bundle Project to server's repository
-
-
+        * Add new created Bundle Project to server's repository
+        * Next you have to add asterisk java library from dmServer repository: click on MANIFRST.MF and add 
+        * 

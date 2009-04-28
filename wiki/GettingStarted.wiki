@@ -18,6 +18,16 @@
 	* `ServerManager.jar`
 	* `DefaultServer.jar`
 
-=Writing scripts=
-       * Singletons
-              this way of  
+----
+=Configuring Eclipse to work with dmServer==
+       * Bring up the Servers view: Window → Show View → Other → Server → Servers.
+
+       * Bring up a "New Server" dialog: Right click in Servers view and select New → Server.
+
+       * select "SpringSource dm Server v1.0" under the SpringSource category, give it an appropriate name, and click "Next".
+
+        * In the "SpringSource AP installation directory" field, locate the springsource-dm-server-1.0.1.RELEASE directory created when you installed S2dmS above.
+
+        * Select "Finish".
+
+(Copy pasted from [http://maniagnosis.blogspot.com/2008/09/developing-for-springsource-dm-server.html])

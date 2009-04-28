@@ -13,11 +13,17 @@
 
 ----
 =Deploying OSGiScriptMapping=
-OSGi script mapping exposes services that implements  org.asteriskjava.fastagi.MappingStrategy interface. It discovers and obtains AgiScripts then it to handle requests.
+OSGi script mapping exposes services that implements  org.asteriskjava.fastagi.MappingStrategy interface. It discovers and obtains AgiScripts. Each AgiServer has its own OSGIScriptMapping instance. 
 To deploy it simply deploy OSGiScriptMapping.jar file via web admin interface
+
 ----
 =Deploying ServerManager=
-       ServerManager exposes services that run and stop AgiServers instances. It can be use to list servers and its properties
+       ServerManager exposes services that run and stop AgiServers instances. It can be use to list servers and its properties.
+To install ServerManager deploy jar via web admin interface
+----
+=Deploying ServerStarter=
+ServerStarter is responsible for creating AgiServer instances when dmServer starts. AgiServers that are started by ServerStarter are configured by xml file. Syntax of this file [ServerStarterXMLConfFile here].
+
 
 ----
 =Configuring Eclipse to work with dmServer==

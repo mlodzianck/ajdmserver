@@ -1,0 +1,18 @@
+=Installing dmServer=
+	Please refer to http://static.springsource.com/projects/dm-server/1.0.x/getting-started/html/ch02.html]
+----
+=Installing eclipse tools=
+	Please refer to http://static.springsource.com/projects/dm-server/1.0.x/getting-started/html/ch02s04.html
+----
+=Installing libraries =
+	*Copy (*in order like below*)
+		asterisk-java-0.3.1.jar
+	and 
+		AgiDmServerLib.jar
+	To directory 
+		\dm_installation_path\repository\libraries\usr\
+        
+----
+=Deploying bundles=
+
+	

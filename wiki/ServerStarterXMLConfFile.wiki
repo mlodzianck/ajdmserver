@@ -26,6 +26,6 @@ Example of agi-servers.xml file
 </servers>
 }}}
 There are three servers defined in this file 
-#domain2 server listening on port 2233
-#domain1 server listening on port 2234
-#domain3 server listening on port 2235
+# domain2 server listening on port 2233
+# domain1 server listening on port 2234
+# domain3 server listening on port 2235

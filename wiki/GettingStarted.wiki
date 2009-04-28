@@ -9,14 +9,15 @@
 		* `asterisk-java-0.3.1.jar`
 		* `AgiDmServerLib.jar`
 	To directory 
-		`<dm_installation_path>\repository\libraries\usr\`
-        
+		`<dm_installation_path>\repository\libraries\usr\
+
 ----
-=Deploying bundles=
-       Open dmServer’s admin console in web browser (http://localhost:8080/admin/) and deploy (*in right order*) three bundles packaged as jars. 
-	* `OsgiMapping.jar`
-	* `ServerManager.jar`
-	* `DefaultServer.jar`
+=Deploying OSGiScriptMapping=
+OSGi script mapping exposes services that implements  org.asteriskjava.fastagi.MappingStrategy interface. It discovers and obtains AgiScripts then it to handle requests.
+To deploy it simply deploy OSGiScriptMapping.jar file via web admin interface
+----
+=Deploying ServerManager=
+       ServerManager exposes services that run and stop AgiServers instances. It can be use to list servers and its properties
 
 ----
 =Configuring Eclipse to work with dmServer==
@@ -60,3 +61,8 @@
 </beans>
 
 }}}
+Line  
+{{{
+ <entry key="agiDomain" value="domain1" />
+}}}
+Defines FastAgi server's domain 

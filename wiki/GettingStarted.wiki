@@ -6,7 +6,7 @@
 	Please refer to http://static.springsource.com/projects/dm-server/1.0.x/getting-started/html/ch02s04.html
 ----
 =Installing libraries =
-	Copy (*in order like below*)
+	Copy (*in order as follows*)
 		* `asterisk-java-0.3.1.jar`
 		* `AgiDmServerLib.jar`
 	To directory 

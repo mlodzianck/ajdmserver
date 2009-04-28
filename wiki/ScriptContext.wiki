@@ -1,0 +1,24 @@
+#summary Example of script spring context xml file
+
+
+{{{
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:osgi="http://www.springframework.org/schema/osgi"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans   
+       http://www.springframework.org/schema/beans/spring-beans.xsd  
+       http://www.springframework.org/schema/osgi  
+       http://www.springframework.org/schema/osgi/spring-osgi.xsd">
+
+
+	<osgi:service id="ExampleScript" interface="org.asteriskjava.fastagi.AgiScript">
+		<osgi:service-properties>
+			<entry key="agiRequestPattern" value="HelloWorld" />
+			<entry key="agiDomain" value="domain1" />
+		</osgi:service-properties>
+		<bean id="ExampleScriptBean" class="my.package.Script" />
+	</osgi:service>
+</beans>
+}}}
+
+Most important (from ajdmserver point of view) is part enclosed in `<osgi:service></osgi:service>` tags

@@ -13,15 +13,13 @@
 
 ----
 =Deploying ajdmserver=
-ajdmserver.jar contains exposes two services:
+ajdmserver.jar exposes two services:
    * MappingStrategy
    * ServerManager
 
-Mapping strategy is a service that implements  org.asteriskjava.fastagi.MappingStrategy interface. It discovers and obtains AgiScripts. Each AgiServer has its own OSGIScriptMapping instance. 
-
-
-----
-=Deploying ServerManager=
+Mapping strategy is a service that implements  org.asteriskjava.fastagi.MappingStrategy interface. It discovers and obtains AgiScripts. Each AgiServer has its own MappingStrategy instance. 
+ServerManager is a service that runs and stops AgiServers instances. It can be use to list servers and its properties.
+To install services deploy ajdmserver.jar in dmSpringSOurce Server web interface (if server is installed on localhost admin interface is located under link http://localhost:8080/admin)
        
 ----
 =Deploying ServerStarter=

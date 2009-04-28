@@ -22,7 +22,7 @@ To deploy it simply deploy OSGiScriptMapping.jar file via web admin interface
 To install ServerManager deploy jar via web admin interface
 ----
 =Deploying ServerStarter=
-ServerStarter is responsible for creating AgiServer instances when dmServer starts. AgiServers that are started by ServerStarter are configured by xml file. Syntax of this file [ServerStarterXMLConfFile here].
+ServerStarter is responsible for creating AgiServer instances when dmServer starts. AgiServers started by ServerStarter are configured in xml file. Syntax of this file [ServerStarterXMLConfFile here].
 
 
 ----

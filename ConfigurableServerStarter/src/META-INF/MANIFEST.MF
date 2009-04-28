@@ -1,8 +1,8 @@
 Manifest-Version: 1.0
 Bundle-Version: 1.0.0
-Bundle-Name: ConfigurableServer Bundle
+Bundle-Name: XMLServerStarter Bundle
 Bundle-ManifestVersion: 2
-Bundle-SymbolicName: ConfigurableServer
+Bundle-SymbolicName: XMLServerStarter
 Import-Package: org.osgi.framework;version="[1.4.0,1.4.0]",
  org.springframework.core.io;version="[2.5.6.A,2.5.6.A]"
 Import-Bundle: AgiDmSeverLib;version="[1.0.0,1.0.0]"

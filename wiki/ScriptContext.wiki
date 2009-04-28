@@ -24,4 +24,5 @@
 Most important (from ajdmserver point of view) is part enclosed in `<osgi:service></osgi:service>` tags. It is OSGi service and spring anonymous bean definition wich provides osgi service. 
 
 Exported service must have two properties:
-  *  agiRequestPattern- it is regular expression pattern used by OSGiMappingStrategy to match [http://asterisk-java.org/latest/apidocs/org/asteriskjava/fastagi/AgiRequest.html#getScript() script name] from agi request with concrete script
+  *  agiRequestPattern- it is regular expression pattern used by OSGiMappingStrategy to match [http://asterisk-java.org/latest/apidocs/org/asteriskjava/fastagi/AgiRequest.html#getScript() script name] from agi request with particular script
+  *  agiDomain- is a domain of agi server (domain for servers are defined in [ServerStarterXMLConfFile agi-servers.xml file])

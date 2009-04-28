@@ -1,0 +1,31 @@
+#summary One-sentence summary of this page.
+Example of agi-servers.xml file
+
+
+{{{
+<?xml version="1.0" encoding="UTF-8"?>
+<servers>
+        <server>
+                <serverPort>2233</serverPort>
+                <serverDomain>domain2</serverDomain>
+        </server>
+
+
+         <server>
+                <serverPort>2234</serverPort>
+                <serverDomain>domain1</serverDomain>
+        </server>
+
+
+         <server>
+                <serverPort>2235</serverPort>
+                <serverDomain>domain3</serverDomain>
+        </server>
+
+
+</servers>
+}}}
+There are three servers defined in this file 
+#domain2 server listening on port 2233
+#domain1 server listening on port 2234
+#domain3 server listening on port 2235

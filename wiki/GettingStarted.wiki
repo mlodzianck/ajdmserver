@@ -14,9 +14,9 @@
 ----
 =Deploying bundles=
        Open dmServer’s admin console in web browser (http://localhost:8080/admin/) and deploy (*in right order*) three bundles packaged as jars. 
-	* OsgiMapping.jar
-	* ServerManager.jar
-	* DefaultServer.jar
+	* `OsgiMapping.jar`
+	* `ServerManager.jar`
+	* `DefaultServer.jar`
 
 
 	

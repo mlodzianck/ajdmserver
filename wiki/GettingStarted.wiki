@@ -57,4 +57,4 @@ To install this bundle deploy it in web admin interface.
         * create class that implements AgiScript interface - this is your script
         * create new folder 'spring' in META-INF folder
         * create new xml file inside spring folder, its name must match `*context.xml` pattern
-        * xml file syntax example and explanation can be found [script-context here] 
+        * xml file syntax example and explanation can be found [ScriptContext here] 

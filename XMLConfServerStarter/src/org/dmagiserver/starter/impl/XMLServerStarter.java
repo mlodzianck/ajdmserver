@@ -53,10 +53,13 @@ public class XMLServerStarter implements IStarter{
 		if (confFileUnix.exists()) {
 			System.out.println("XML file exist under Unix location.");
 			confFile=confFileUnix;
-		}
+		} else 
 		if (confFileWin.exists()) {
 			System.out.println("XML file exist under Windows location.");
 			confFile=confFileWin;
+		} else {
+			System.err.println("No agi-servers.xml file found. Aborting server installation");
+			return;
 		}
 		try {
 			
@@ -104,7 +107,7 @@ public class XMLServerStarter implements IStarter{
 			}
 		} catch (Exception e) {
 			
-			System.err.println("Exceprion while parsing XML file. Check syntax! "+e);
+			System.err.println("Exception while parsing XML file. Check syntax! "+e);
 			
 		}
 

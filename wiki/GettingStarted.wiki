@@ -55,6 +55,11 @@ To install this bundle deploy it in web admin interface.
            *  in 'Import Bundle' section click 'Add...' button
            *  in 'Bundle Selection' window choose org.asteriskjava 0.3.1 bundle
         * create class that implements AgiScript interface - this is your script
-        * create new folder 'spring' in META-INF folder
+        * create new folder 'spring' inside META-INF folder
         * create new xml file inside spring folder, its name must match `*context.xml` pattern
         * xml file syntax example and explanation can be found [ScriptContext here] 
+        * now bundle can be deployed to dmServer (it should be done automatically by Eclipse)
+        * if you want to deploy bundle to remote server right click on eclipse project, choose 'Export' and export projext as Bundle Project
+
+        * *IMPORTANT* each script is created in singleton model, it means that in one script instance is shared between different requests
+        *  Unfortunatly there is no simple way to avoid singleton model (main reason is [http://static.springframework.org/osgi/docs/current/reference/html/known-issues.html#OSGI-237 this] issue) but there is workaround for this- it can be found [AgiScriptFactories here]

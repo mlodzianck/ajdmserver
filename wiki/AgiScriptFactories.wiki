@@ -9,7 +9,7 @@ First of all you have to import AgiDmSeverLib to your project from dmServer repo
     * in 'Import Bundle' section click 'Add...' button
     * in 'Bundle Selection' window choose AgiDmSeverLib 
 Next you have to create class that implements IAgiScriptFactory interface. getScript() method of this class must return your AgiScript you intend to be non-sigleton script.
-At the and edit script context xml file like in beow example.
+At the end edit script context xml file like in beow example.
 {{{
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"

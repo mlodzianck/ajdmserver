@@ -26,7 +26,7 @@ To install services deploy ajdmserver.jar in dmSpringSOurce Server web interface
        
 ----
 =Deploying XMLConfServerStarter=
-ServerStarter is responsible for creating AgiServer instances defined in simple XML file on dmServer startup. 
+ServerStarter is responsible for creating AgiServer instances on dmServer startup. Servers are defined in XML file.  
 XML files with servers definitions must be located at:
   *  /etc/agi-servers.xml under Unix systems
   *  c:\agi-servers.xml under Windows systems

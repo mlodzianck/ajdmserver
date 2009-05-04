@@ -25,14 +25,13 @@ public class OSGiMappingStrategy implements IOSGiMappingStrategy,
 
 	@Override
 	public AgiScript determineScript(AgiRequest arg0) {
+		AgiScript script;
 		System.out.println("OSGiMappingStrategy.determineScript()");
 		System.err.println("Looking up for script " + arg0.getScript()
 				+ " for domain " + severDomain);
 		try {
 			ServiceReference[] refs = bundleContext.getAllServiceReferences(
 					null, "(agiDomain=" + severDomain + ")");
-			// ServiceReference[] refs = bundleContext.getAllServiceReferences(
-			// null, null);
 			if (refs == null) {
 				System.err.println("Nothing found for script "
 						+ arg0.getScript());
@@ -53,34 +52,38 @@ public class OSGiMappingStrategy implements IOSGiMappingStrategy,
 						if (s instanceof AgiScript) {
 							System.err.println("Got AgiScript instance");
 							System.err.println("Casting to AgiScript");
-							AgiScript script=(AgiScript) bundleContext.getService(ref);
-							System.err.println("Returning script "+script.toString());
-							return script;
-
-						} if (s instanceof IAgiScriptFactory) {
-							System.err.println("Got AgiScript IAgiScriptFactory");
+							script = (AgiScript) bundleContext.getService(ref);
+							System.err.println("Returning script "
+									+ script.toString());
+						} else if (s instanceof IAgiScriptFactory) {
+							System.err
+									.println("Got AgiScript IAgiScriptFactory");
 							System.err.println("Getting AgiScript");
-							AgiScript script=((IAgiScriptFactory) bundleContext.getService(ref)).getScript();
-							System.err.println("Returning script "+script.toString());
-							if (script instanceof BundleContextAware) {
-								System.err.println("This script implements BundleContextAware interface. Adding bundleContext");
-								((BundleContextAware)script).setBundleContext(bundleContext);
-							}
-							return script;
-						}
-						
-						
-						
-						else {
-							System.out.println("Imported service is not AgiScript type");
+							script = ((IAgiScriptFactory) bundleContext
+									.getService(ref)).getScript();
+							System.err.println("Returning script "
+									+ script.toString());
+						} else {
+							System.out
+									.println("Imported service is not AgiScript type");
 							return null;
-							
-							
-						}
-						
-					}
-				}
 
+						}
+						if (script instanceof BundleContextAware) {
+							System.err
+									.println("This script implements BundleContextAware interface. Adding bundleContext");
+							((BundleContextAware) script)
+									.setBundleContext(bundleContext);
+
+						}
+						AgiScriptDecorator decorator = new AgiScriptDecorator();
+						decorator.setBundleContext(bundleContext);
+						decorator.setScript(script);
+
+						return decorator;
+					}
+
+				}
 			}
 		} catch (InvalidSyntaxException e) {
 			System.err.println("Exception while looking up for script " + e);

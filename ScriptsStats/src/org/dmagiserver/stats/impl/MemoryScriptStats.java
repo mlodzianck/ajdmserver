@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Random;
 
 import org.asteriskjava.fastagi.AgiRequest;
 import org.asteriskjava.fastagi.AgiScript;
@@ -30,7 +31,7 @@ public class MemoryScriptStats implements IScriptStats {
 		row.setServerDomain(serverDomain);
 		repository.put(request2ScriptID(arg0), row);
 		System.err.println("beginScript- added stat row " + row + " with id "
-				+ request2ScriptID(arg0));
+				+ request2ScriptID(arg0)+" running on domain "+serverDomain);
 		return request2ScriptID(arg0);
 
 	}
@@ -77,12 +78,16 @@ public class MemoryScriptStats implements IScriptStats {
 	}
 
 	private String request2ScriptID(AgiRequest request) {
+		
+		
 		return request.getUniqueId() + "@"
 				+ request.getRemoteAddress().toString();
 	}
 
 	@Override
 	public List<String> getRunningScriptsIDsForDomain(String arg0) {
+		System.out.println("MemoryScriptStats.getRunningScriptsIDsForDomain() for domain "+arg0);
+		
 		LinkedList<String> ret = new LinkedList<String>();
 
 		Iterator<String> scriptIds = repository.keySet().iterator();

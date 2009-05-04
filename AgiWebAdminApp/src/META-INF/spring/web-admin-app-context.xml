@@ -22,7 +22,7 @@
 		<property name="defaultMethodName">
 			<value>defaultHandleRequestInternal</value>
 		</property>
-		<property name=""></property>
+		
 	</bean>
 
 

@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-Classpath: .
+Bundle-Version: 1.0.0
+Bundle-Name: ScriptsStats Bundle
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: ScriptsStats
+Import-Bundle: org.asteriskjava;version="[0.3.1,0.3.1]",
+ AgiDmSeverLib;version="[1.0.0,1.0.0]"
+

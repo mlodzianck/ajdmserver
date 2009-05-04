@@ -1,0 +1,61 @@
+@CHARSET "UTF-8";
+TABLE.serverslist {
+	border: solid;
+	border-color:  black;
+	border-width: 1px;
+	border-collapse: collapse;
+	border-spacing: 3px;
+	border-style: solid;
+	
+}
+
+tr.serveritem {
+	}
+BODY {
+	background-color: white;
+	font-family: serif;
+	padding-left: 20px;
+}
+
+H1 {
+	font-family: sans-serif;
+}
+
+td.serverattrname {
+		font-family: monospace;
+		font-weight: bold;
+		text-decoration: underline;
+}
+
+td.serverattrval {
+		font-family: monospace;
+		
+		
+}
+
+
+a.actionlink {
+	font: bold;
+	color: navy;
+	font-family: monospace;
+	font-size: 12px;
+}
+
+
+td.servertitle {
+	background: graytext;
+	text-align: center;
+	font-family: monospace;
+	text-decoration: underline;
+	font-weight: bold;
+}
+
+
+TABLE.maintable {
+	width: 100%;
+	padding-left: 100px;
+	padding-right: 100px;
+}
+td.lrcolumn {
+	background: rgb(200,200,200);
+	}

@@ -31,8 +31,10 @@ public class AdminAppController extends MultiActionController {
 		List<Properties> servers =util.getServersProperties();
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("serversList",servers);
-		
-		mv.setViewName("serverlist");
+		mv.addObject("pageTitle","Configured servers");
+
+		mv.addObject("contentPage", "serverListContent.jsp");
+		mv.setViewName("template");
 		return mv;
 		
 	}
@@ -58,23 +60,24 @@ public class AdminAppController extends MultiActionController {
 		Iterator<String> itr=scriptsIds.iterator();
 		while (itr.hasNext()) {
 			String scriptID = (String) itr.next();
-			String description="<b>Sript ID</b> ::"+scriptID+"<br>";
+			String description="<div><b>Sript ID</b> ::"+scriptID+"<br>";
 			IScriptStat stat=stats.getScriptStat(scriptID);
-			description+="<ul><li><b>Script class</b> ::"+stat.getHandlingClass().getCanonicalName()+"<br>";
-			description+="<li><b>Asterisk host</b> ::"+stat.getRequest().getRemoteAddress().getCanonicalHostName()+"<br>";
+			description+="<b>Script class</b> ::"+stat.getHandlingClass().getCanonicalName()+"<br>";
+			description+="<b>Asterisk host</b> ::"+stat.getRequest().getRemoteAddress().getCanonicalHostName()+"<br>";
 			Date startDate=stat.getStartDate();
 			long runningSeconds= ((new Date()).getTime()-startDate.getTime())/1000;
-			description+="<li><b>Start time </b> ::"+startDate.toString()+" (running from "+runningSeconds+" sec.)<br>";
-			description+="<li><b>Agi script </b> ::"+stat.getRequest().getScript()+"<br>";
-			description+="<li><b>Agi URI </b> ::"+stat.getRequest().getRequestURL()+"<br></ul>";
+			description+="<b>Start time </b> ::"+startDate.toString()+" (running from "+runningSeconds+" sec.)<br>";
+			description+="<b>Agi script </b> ::"+stat.getRequest().getScript()+"<br>";
+			description+="<b>Agi URI </b> ::"+stat.getRequest().getRequestURL()+"<br></div>";
 			scripts.add(description);
 			
 		}
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("text","actionn: getRunningScripts for domain "+domain);
 		mv.addObject("pageTitle","Running scripts for domain ["+domain+"]");
+		mv.addObject("contentPage", "scriptListContent.jsp");
 		mv.addObject("scriptList", scripts);
-		mv.setViewName("runningscripts");
+		mv.setViewName("template");
 		return mv;
 	}
 }

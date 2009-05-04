@@ -15,12 +15,27 @@
 
 	</bean>
 
-<bean id="adminApp2" class="mt.AdminAppController">
-		<constructor-arg ref="bundleContext" />
-		
-
+	<bean id="paramResolver" class="org.springframework.web.servlet.mvc.multiaction.ParameterMethodNameResolver">
+		<property name="paramName">
+			<value>action</value>
+		</property>
+		<property name="defaultMethodName">
+			<value>defaultHandleRequestInternal</value>
+		</property>
+		<property name=""></property>
 	</bean>
 
+
+
+
+	<bean id="adminApp2" class="mt.AdminAppController">
+		<constructor-arg ref="bundleContext" />
+		<property name="methodNameResolver">
+			<ref bean="paramResolver" />
+		</property>
+
+	</bean>
+	
 
 
 	<bean id="urlMapping"

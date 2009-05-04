@@ -17,7 +17,8 @@
 <table class="maintable">
 	<tr>
 		<td colspan="2" align="center" ><h1>ajdm Admin page</h1>
-		<br><c:out value="${param['action']}"/>  
+		<br><c:out value="${param['action']}"/>  <br>
+		<c:out value="${text}"/>  
 		</td>
 	</tr>
 	<tr>

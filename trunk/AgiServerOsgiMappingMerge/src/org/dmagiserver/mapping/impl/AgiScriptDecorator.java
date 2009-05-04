@@ -25,6 +25,10 @@ public class AgiScriptDecorator implements AgiScript {
 	public void setScript(AgiScript script) {
 		this.script = script;
 	}
+	
+	public void setServerDomain(String serverDomain) {
+		this.serverDomain = serverDomain;
+	}
 
 	@Override
 	public void service(AgiRequest arg0, AgiChannel arg1) throws AgiException {

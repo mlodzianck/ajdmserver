@@ -79,6 +79,7 @@ public class OSGiMappingStrategy implements IOSGiMappingStrategy,
 						AgiScriptDecorator decorator = new AgiScriptDecorator();
 						decorator.setBundleContext(bundleContext);
 						decorator.setScript(script);
+						decorator.setServerDomain(severDomain);
 
 						return decorator;
 					}

@@ -42,9 +42,8 @@
 		class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
 		<property name="mappings">
 			<props>
-				<prop key="/serverman">adminApp
-				</prop>
-				<prop key="/servman2">adminApp2</prop>
+				
+				<prop key="/*">adminApp2</prop>
 			</props>
 		</property>
 	</bean>

@@ -8,50 +8,57 @@
 <table class="serverslist">
 	<c:forEach items="${serversList}" var="server">
 		<tr>
-
-			<td>
 			<table>
-				<tr>
-					<td colspan="2" class="servertitle" align="center"><b>Server
-					<c:out value="${server['serverDomain']}" /></b></td>
-				</tr>
-				<c:forEach items="${server}" var="val">
-
+				<td>
+					<table>
+						<tr>
+							<td colspan="2" align="center" class="sidelinksheader">
+								<b>Server <c:out value="${server['serverDomain']}" /></b>
+							</td>
+						</tr>
+						<c:forEach items="${server}" var="val">
+						<tr>
+							<td class="serverattrname"><c:out value="${val.key}" /></td>
+							<td><c:out value="${val.value}" /></td>
+						</tr>
+						</c:forEach>
+					</table>
+				</td>
+				<td>
+				<table>
 					<tr>
-						<td class="serverattrname"><c:out value="${val.key}" /></td>
-						<td class="serverattrval"><c:out value="${val.value}" /></td>
-					</tr>
-
-				</c:forEach>
-
-			</table>
-			</td>
-		</tr>
-		<tr>
-			<td align="center"><a
-				href="<c:url value="servman2">
+						<td align="center"><a
+							href="<c:url value="/app">
 						<c:param name="action" value="getRunningScripts"/>
 						<c:param name="domain" value="${server['serverDomain']}"/>
 						</c:url>"
-				class="actionlink"> Get running scripts for domain </a></td>
-		</tr>
-		<tr>
-			<td align="center"><a
-				href="<c:url value="servman2">
+							class="actionlink"> Get running scripts for domain </a></td>
+					</tr>
+					<tr>
+						<td align="center"><a
+							href="<c:url value="/app">
 						<c:param name="action" value="getScripts"/>
 						<c:param name="domain" value="${server['serverDomain']}"/>
-				</c:url>"
-				class="actionlink">Get configured scripts for domain </a></td>
-		</tr>
-		<tr>
-			<td>
-			<hr width="80%" align="center" size="1">
-			</td>
+							</c:url>"
+							class="actionlink">Get configured scripts for domain </a></td>
+					</tr>
+				</table>
+				</td>
 		</tr>
 
 
+				<tr>
+					<td colspan="2">
+							<hr width="80%" align="center" size="1">
+					</td>
+				</tr>
+
+				
+				</c:forEach>
 
 
-	</c:forEach>
-</table>
+
+
+
+			</table>
 </div>

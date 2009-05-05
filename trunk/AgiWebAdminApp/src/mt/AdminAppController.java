@@ -24,7 +24,7 @@ public class AdminAppController extends MultiActionController {
 	
 	
 	
-	public ModelAndView defaultHandleRequestInternal(HttpServletRequest arg0,
+	public ModelAndView getServers(HttpServletRequest arg0,
 			HttpServletResponse arg1) throws Exception {
 		DmAgiAdminUtil util=new DmAgiAdminUtil(bundleContext);
 		
@@ -34,6 +34,20 @@ public class AdminAppController extends MultiActionController {
 		mv.addObject("pageTitle","Configured servers");
 
 		mv.addObject("contentPage", "serverListContent.jsp");
+		mv.setViewName("template");
+		return mv;
+		
+	}
+	
+	public ModelAndView defaultHandleRequestInternal(HttpServletRequest arg0,
+			HttpServletResponse arg1) throws Exception {
+		DmAgiAdminUtil util=new DmAgiAdminUtil(bundleContext);
+		
+		List<Properties> servers =util.getServersProperties();
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("pageTitle","Home");
+		mv.addObject("content", "Home content");
+		mv.addObject("contentPage", "homeContent.jsp");
 		mv.setViewName("template");
 		return mv;
 		

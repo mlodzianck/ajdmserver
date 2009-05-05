@@ -73,7 +73,7 @@
 	width: 200px;
 	background-color: #F7F7F7;
 	margin-top: 5px;
-	height: 260px;
+	height: 100%;
 }
 .sidelinksheader {
 	background-image: url(../images/sidelinks.jpg);
@@ -132,7 +132,7 @@
 #main #header .logo {
 	font-family: Geneva, Arial, Helvetica, sans-serif;
 	font-size: 24px;
-	color: #157E93;
+	color: white;
 	font-weight: bold;
 	float: left;
 	width: 880px;
@@ -255,4 +255,17 @@
 .col222 a:hover {
 
 	color: #666666;
+}
+
+
+td.serverattrname {
+		
+		font-weight: bold;
+		text-decoration: underline;
+}
+
+td.serverattrval {
+		font-family: monospace;
+		
+		
 }

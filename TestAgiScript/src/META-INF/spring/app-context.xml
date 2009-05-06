@@ -12,6 +12,7 @@
 			<entry key="agiRequestPattern" value="InboundHandler.php" />
 			<entry key="agiDomain" value="domain1" />
 		</osgi:service-properties>
-		<bean id="TestScriptFactoryBean" class="mt.TestScriptFactory" />
+		<bean class="mt.TestScriptFactory" />
 	</osgi:service>
+	
 </beans>

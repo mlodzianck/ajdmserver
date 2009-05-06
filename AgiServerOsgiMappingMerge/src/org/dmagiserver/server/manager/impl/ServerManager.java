@@ -1,5 +1,6 @@
 package org.dmagiserver.server.manager.impl;
 
+import java.awt.peer.SystemTrayPeer;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -27,7 +28,8 @@ public class ServerManager implements IServerManager,
 	private BundleContext bc;
 
 	@Override
-	public boolean addServer(Properties serverProperies, boolean autorun) {
+	synchronized public boolean addServer(Properties serverProperies,
+			boolean autorun) {
 		try {
 			if (!serverProperies.containsKey(IAgiServer.SERVER_DOMAIN)
 					|| !serverProperies.containsKey(IAgiServer.SERVER_PORT)) {
@@ -75,45 +77,58 @@ public class ServerManager implements IServerManager,
 			serverProperies.put("DeployTime", (new Date()).toString());
 			IAgiServer s = new AgiServer();
 			s.setProperties(serverProperies);
-			ServiceReference ref=bc.getServiceReference("org.dmagiserver.mapping.IOSGiMappingFactory");
-			if (ref==null) {
+			ServiceReference ref = bc
+					.getServiceReference("org.dmagiserver.mapping.IOSGiMappingFactory");
+			if (ref == null) {
 				System.err.println("No mapping strategy found, exitting");
 				return false;
 			}
-			IOSGiMappingFactory mappingStrategyFactory=(IOSGiMappingFactory)bc.getService(ref);
-			IOSGiMappingStrategy mappingStrategy =mappingStrategyFactory.getMappingStrategyForDomain(serverid);
+			IOSGiMappingFactory mappingStrategyFactory = (IOSGiMappingFactory) bc
+					.getService(ref);
+			IOSGiMappingStrategy mappingStrategy = mappingStrategyFactory
+					.getMappingStrategyForDomain(serverid);
 			s.setMappingStrategy(mappingStrategy);
-			servers.put(serverid, s);
-			System.err.println("Server deployed with domainName "+serverid);
-			System.err.println("With mapping strategy "+mappingStrategy.toString());
-			System.err.println("Port "+serverProperies.getProperty(IAgiServer.SERVER_PORT));
+			synchronized (servers) {
+				servers.put(serverid, s);
+			}
+			System.err.println("Server deployed with domainName " + serverid);
+			System.err.println("With mapping strategy "
+					+ mappingStrategy.toString());
+			System.err.println("Port "
+					+ serverProperies.getProperty(IAgiServer.SERVER_PORT));
 			if (autorun) {
-				((IAgiServer) servers.get(serverid)).startServer();
+				synchronized (servers) {
+					((IAgiServer) servers.get(serverid)).startServer();
+				}
 				System.err.println("Server started");
 			}
 			return true;
 		} catch (Exception e) {
 			System.err.println("Exception while adding server " + e
 					+ "\nSERVER WAS NOT ADDED");
+			e.printStackTrace();
 			return false;
 		}
 
 	}
 
 	@Override
-	public List<IAgiServer> getServers() {
+	synchronized public List<IAgiServer> getServers() {
 		return new LinkedList<IAgiServer>(servers.values());
 	}
 
 	@Override
-	public List<Properties> getServersProperties() {
+	synchronized public List<Properties> getServersProperties() {
 		List<IAgiServer> serversList = getServers();
 		if (serversList.size() > 0) {
 			LinkedList<Properties> propertiesList = new LinkedList<Properties>();
-			Iterator<IAgiServer> itr = serversList.iterator();
-			while (itr.hasNext()) {
-				propertiesList.add(((IAgiServer) itr.next()).getProperties());
+			synchronized (servers) {
+				Iterator<IAgiServer> itr = serversList.iterator();
+				while (itr.hasNext()) {
+					propertiesList.add(((IAgiServer) itr.next())
+							.getProperties());
 
+				}
 			}
 			return propertiesList;
 		} else {
@@ -123,23 +138,27 @@ public class ServerManager implements IServerManager,
 	}
 
 	@Override
-	public boolean removeServer(String domain) {
+	synchronized public boolean removeServer(String domain) {
 		try {
 			IAgiServer oldDomain = servers.get(domain);
 			oldDomain.stopServer();
 			Thread.sleep(2000);
 			System.err.println("Server " + domain + " stopped");
-			servers.remove(oldDomain.getProperty(IAgiServer.SERVER_DOMAIN));
+			synchronized (servers) {
+				servers.remove(oldDomain.getProperty(IAgiServer.SERVER_DOMAIN));
+			}
+
 			Thread.sleep(2000);
 			System.err.println("Server " + domain + " removed");
 			return true;
 		} catch (Exception e) {
 			System.err.println("Execption while removing server " + domain);
+			e.printStackTrace();
 			return false;
 		}
 	}
 
-	public void shutdown() {
+	synchronized public void shutdown() {
 		Iterator<IAgiServer> itr = servers.values().iterator();
 		while (itr.hasNext()) {
 			IAgiServer agiServer = (IAgiServer) itr.next();

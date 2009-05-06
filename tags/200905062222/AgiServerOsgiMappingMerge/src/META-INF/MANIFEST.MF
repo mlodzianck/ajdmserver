@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-Version: 1.0.0
+Bundle-Name: ajdmserver Bundle
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: ajdmserver
+Import-Package: org.asteriskjava.fastagi,
+ org.dmagiserver.mapping,
+ org.dmagiserver.server,
+ org.dmagiserver.server.manager,
+ org.osgi.framework,
+ org.springframework.core;version="[2.5.6.A,2.5.6.A]",
+ org.springframework.osgi.context,
+ org.springframework.osgi.service.exporter
+Import-Bundle: AgiDmSeverLib;version="[1.0.0,1.0.0]",
+ org.asteriskjava;version="[0.3.1,0.3.1]"
+

@@ -358,7 +358,7 @@ public class AdminAppController extends MultiActionController {
 		Iterator<String> itr=reqParams.keySet().iterator();
 		while (itr.hasNext()) {
 			String paramName = (String) itr.next();
-			System.err.println("got param "+paramName);
+		
 			String[] params=request.getParameterValues(paramName);
 			for (int i = 0; i < params.length; i++) {
 				String param = params[i];
@@ -372,7 +372,6 @@ public class AdminAppController extends MultiActionController {
 		Iterator<String> itr2=rawRequest.keySet().iterator();
 		while (itr2.hasNext()) {
 			String paramName = (String) itr2.next();
-			System.err.println("got param "+paramName);
 			
 				rawRequestProp.put(paramName, rawRequest.get(paramName));
 				

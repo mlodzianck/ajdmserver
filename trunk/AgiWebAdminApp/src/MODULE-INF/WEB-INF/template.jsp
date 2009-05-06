@@ -57,6 +57,7 @@ admin panel</div>
 	<li>&nbsp;</li>
 	
 	<li><a href="http://code.google.com/p/ajdmserver/w/list">Documentation</a></li>
+	<li><a href="http://asterisk-java.org">Asterisk-Java Home Page</a></li>
 
 
 </ul>

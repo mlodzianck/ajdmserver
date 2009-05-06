@@ -29,7 +29,7 @@
 					<tr>
 						<td align="center"><a
 							href="<c:url value="/app">
-						<c:param name="action" value="getRunningScripts"/>
+						<c:param name="action" value="getRunningScriptsForDomain"/>
 						<c:param name="domain" value="${server['serverDomain']}"/>
 						</c:url>"
 							class="actionlink"> Get running scripts for domain </a></td>
@@ -37,10 +37,26 @@
 					<tr>
 						<td align="center"><a
 							href="<c:url value="/app">
-						<c:param name="action" value="getScripts"/>
+						<c:param name="action" value="getScriptsForDomain"/>
 						<c:param name="domain" value="${server['serverDomain']}"/>
 							</c:url>"
 							class="actionlink">Get configured scripts for domain </a></td>
+					</tr>
+					<tr>
+						<td align="center"><a
+							href="<c:url value="/app">
+						<c:param name="action" value="removeServer"/>
+						<c:param name="domain" value="${server['serverDomain']}"/>
+							</c:url>"
+							class="actionlink">Remove server for domain </a></td>
+					</tr>
+					<tr>
+						<td align="center"><a
+							href="<c:url value="/app">
+						<c:param name="action" value="restartServer"/>
+						<c:param name="domain" value="${server['serverDomain']}"/>
+							</c:url>"
+							class="actionlink">Restart server for domain</a></td>
 					</tr>
 				</table>
 				</td>
@@ -56,7 +72,14 @@
 				
 				</c:forEach>
 
-
+				<tr>
+					<td align="center" colspan="2"><a
+							href="<c:url value="/app">
+						<c:param name="action" value="reinstallServers"/>
+							</c:url>"
+							class="actionlink">Reinstall all servers</a></td>
+					
+				</tr>
 
 
 

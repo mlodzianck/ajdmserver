@@ -46,9 +46,13 @@ admin panel</div>
 					<c:param name="action" value="getServers"/>
 				</c:url>">Configured Servers</a></li>
 	
-	<li><a>Configured Scripts</a></li>
+	<li><a href="<c:url value=""> 
+					<c:param name="action" value="getScripts"/>
+				</c:url>">Configured Scripts</a></li>
 	
-	<li><a>Running Scripts </a></li>
+	<li><a href="<c:url value=""> 
+					<c:param name="action" value="getRunningScripts"/>
+				</c:url>">Running Scripts </a></li>
 	
 	<li>&nbsp;</li>
 	

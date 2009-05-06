@@ -17,7 +17,7 @@ public class DmAgiAdminUtil {
 		bundleContext = bc;
 	}
 
-	private IServerManager getServerManagerService() {
+	public IServerManager getServerManagerService() {
 		ServiceReference ref = bundleContext
 				.getServiceReference(IServerManager.class.getName());
 		if (ref == null) {
@@ -53,6 +53,21 @@ public class DmAgiAdminUtil {
 		try {
 			refs = bundleContext.getAllServiceReferences(
 					null, "(agiDomain=" + domainName + ")");
+			
+			return refs;
+		} catch (InvalidSyntaxException e) {
+			System.err.println("Exception while impoertig scripts refereces");
+			return null;
+		}
+		
+		
+	}
+	
+	public ServiceReference[] getScriptsReferences() {
+		ServiceReference[] refs;
+		try {
+			refs = bundleContext.getAllServiceReferences(
+					null, "(agiDomain=*)");
 			for (int i = 0; i < refs.length; i++) {
 				
 			}
@@ -64,6 +79,8 @@ public class DmAgiAdminUtil {
 		
 		
 	}
+	
+	
 	
 	public IScriptStats getScriptStatsService() {
 		ServiceReference ref = bundleContext

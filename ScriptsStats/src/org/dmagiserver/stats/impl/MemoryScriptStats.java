@@ -29,9 +29,14 @@ public class MemoryScriptStats implements IScriptStats {
 		row.setStartDate(new Date());
 		row.setScriptID(request2ScriptID(arg0));
 		row.setServerDomain(serverDomain);
-		repository.put(request2ScriptID(arg0), row);
-		System.err.println("beginScript- added stat row " + row + " with id "
-				+ request2ScriptID(arg0)+" running on domain "+serverDomain);
+		synchronized (repository) {
+			repository.put(request2ScriptID(arg0), row);
+		}
+
+		System.err
+				.println("beginScript- added stat row " + row + " with id "
+						+ request2ScriptID(arg0) + " running on domain "
+						+ serverDomain);
 		return request2ScriptID(arg0);
 
 	}
@@ -39,7 +44,10 @@ public class MemoryScriptStats implements IScriptStats {
 	@Override
 	public void endScript(AgiRequest arg0, AgiScript arg1) {
 		if (repository.containsKey(request2ScriptID(arg0))) {
-			repository.remove(request2ScriptID(arg0));
+			synchronized (repository) {
+				repository.remove(request2ScriptID(arg0));
+			}
+
 			System.err.println("endScript script with ID "
 					+ request2ScriptID(arg0) + " removed");
 		} else {
@@ -51,12 +59,18 @@ public class MemoryScriptStats implements IScriptStats {
 
 	@Override
 	public int getAllScriptsCount() {
-		return repository.keySet().size();
+		synchronized (repository) {
+			return repository.keySet().size();
+		}
+
 	}
 
 	@Override
 	public List<String> getRunningScriptsIDs() {
-		return new LinkedList<String>(repository.keySet());
+		synchronized (repository) {
+			return new LinkedList<String>(repository.keySet());
+		}
+
 	}
 
 	@Override
@@ -69,7 +83,10 @@ public class MemoryScriptStats implements IScriptStats {
 	public IScriptStat getScriptStat(String arg0) {
 		if (repository.containsKey(arg0)) {
 			System.err.println("getScriptStat got script with ID " + arg0);
-			return (IScriptStat) repository.get(arg0);
+			synchronized (repository) {
+				return (IScriptStat) repository.get(arg0);
+			}
+
 		} else {
 			System.err.println("getScriptStat script with  ID " + arg0
 					+ " not found");
@@ -78,16 +95,17 @@ public class MemoryScriptStats implements IScriptStats {
 	}
 
 	private String request2ScriptID(AgiRequest request) {
-		
-		
+
 		return request.getUniqueId() + "@"
 				+ request.getRemoteAddress().toString();
 	}
 
 	@Override
 	public List<String> getRunningScriptsIDsForDomain(String arg0) {
-		System.out.println("MemoryScriptStats.getRunningScriptsIDsForDomain() for domain "+arg0);
-		
+		System.out
+				.println("MemoryScriptStats.getRunningScriptsIDsForDomain() for domain "
+						+ arg0);
+
 		LinkedList<String> ret = new LinkedList<String>();
 
 		Iterator<String> scriptIds = repository.keySet().iterator();

@@ -7,38 +7,39 @@
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
+<title>ajdmserver</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+<link href="<c:url value="/css/css_uax.css"/>" rel="stylesheet" type="text/css"/>
+<link rel="icon" type="image/png" href="<c:url value="/images/animated_favicon1.gif"/>"/>
 
-
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>AJ-DM Admin</title>
-<style type="text/css">
-<!--
-body {
-	margin-left: 0px;
-	margin-top: 0px;
-	margin-right: 0px;
-	margin-bottom: 0px;
-}
--->
-</style>
-<link href="<c:url value="/css/css_uax.css"/>" rel="stylesheet"
-	type="text/css">
 </head>
 <body>
+
+<!--main_end-->
 <div id="main">
+
+
+<div id="top">
+<!-- 
+<a href="#">Link3</a> <a href="#">Link2</a> <a
+	href="#">Link1</a>
+ -->
+</div>
 <div id="header">
 
 
 <div id="banner">
-<div class="logo">Asterisk-Java dmServer Bundle<br />
-admin panel</div>
-
+<div class="logo"><a href="./">ajdmserver</a></div>
 </div>
 
-<div id="content">
+
+
+<div id="content"><!--navi_left-->
 <div class="col1">
-<div class="sidelinksheader">MENU</div>
+
+<h4 class="sidelinksheader clear">MENU</h4>
 <ul>
 	<li><a href="<c:url value="/app"/>">Home </a></li>
 	
@@ -53,29 +54,53 @@ admin panel</div>
 	<li><a href="<c:url value=""> 
 					<c:param name="action" value="getRunningScripts"/>
 				</c:url>">Running Scripts </a></li>
-	
-	<li>&nbsp;</li>
-	
+</ul>
+
+<br />
+
+<h4 class="sidelinksheader clear">MISC</h4>
+<ul>
 	<li><a href="http://code.google.com/p/ajdmserver/w/list">Documentation</a></li>
 	<li><a href="http://asterisk-java.org">Asterisk-Java Home Page</a></li>
 
 
 </ul>
+
 </div>
-<div class="col2"><span class="title1">&#9674; <c:out
-	value="${pageTitle}" /></span><br>
-<br>
-<c:import url="${contentPage}" /></div>
+
+
+
+<!--content-->
+<div class="col2">
+
+<h4 class="title1"><c:out value="${pageTitle}" /></h4>
+
+
+<!--div dla tekstowych tresci-->
+<div id="text">
+
+<c:import url="${contentPage}" />
+
+</div>
+
+
+
+</div>
 
 
 </div>
 </div>
-<div id="footer"> <a
-	href="http://www.maadesigns.co.uk/services/web-design-services.htm"
-	target="_blank">website design</a> by <a
-	href="http://www.maadesigns.co.uk/" target="_blank">www.maadesigns.co.uk</a>
-</div>
+
+
+
+<div id="footer"><a class="left" href="http://www.ajdmserver.pl/"
+	target="_blank">&copy;2009 ajdmserver</a> <a class="right"
+	href="http://www.satanandco.pl/" target="_blank">Satan&amp;Co.</a></div>
+
 
 </div>
+<!--main_end-->
+
+
 </body>
 </html>

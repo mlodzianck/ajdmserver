@@ -31,7 +31,7 @@
 
 
 <div id="banner">
-<div class="logo"><a href="./">ajdmserver</a></div>
+<div class="logo"><a href="<c:url value="/app"/>">ajdmserver</a></div>
 </div>
 
 

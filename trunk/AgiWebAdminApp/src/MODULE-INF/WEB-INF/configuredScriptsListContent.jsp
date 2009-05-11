@@ -5,15 +5,17 @@
 --%><%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%><%-- 
 --%>
 <div align="center">
-<table class="serverslist">
-	<c:forEach items="${scriptsList}" var="server">
-		<tr>
-			<table>
+<table>
+	<tbody>
+		<c:forEach items="${scriptsList}" var="server">
+			<tr>
 				<td>
-					<table>
+				<table border="1" cellspacing="0" cellpadding="3" frame="hsides"
+					rules="rows" width="100%">
+					<tbody>
 						<tr>
-							<td colspan="2" align="center" class="sidelinksheader">
-								<b>Script </b>${scriptName}
+							<td colspan="2" align="center" class="sidelinksheader2">
+								<b>Script </b><c:out value="${server['Additional prop Bundle-SymbolicName']}"/>
 							</td>
 						</tr>
 						<c:forEach items="${server}" var="val">
@@ -22,25 +24,18 @@
 							<td><c:out value="${val.value}" /></td>
 						</tr>
 						</c:forEach>
-					</table>
+
+
+					</tbody>
+				</table>
 				</td>
-				
-				
-		</tr>
+			</tr>
+			
+			<tr><td>&nbsp;</td></tr>
+		</c:forEach>
+		
+	</tbody>
+</table>
 
 
-				<tr>
-					<td colspan="2">
-							<hr width="80%" align="center" size="1">
-					</td>
-				</tr>
-
-				
-				</c:forEach>
-
-
-
-
-
-			</table>
 </div>

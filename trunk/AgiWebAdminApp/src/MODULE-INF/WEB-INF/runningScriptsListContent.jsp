@@ -5,61 +5,62 @@
 --%><%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%><%-- 
 --%>
 <div align="center">
-<table class="serverslist">
-	<c:forEach items="${scriptsList}" var="server">
-		<tr>
-			<table>
+<table>
+	<tbody>
+		<c:forEach items="${scriptsList}" var="script">
+			<tr>
 				<td>
-					<table>
+				<table border="1" cellspacing="0" cellpadding="3" frame="hsides"
+					rules="rows" width="100%">
+					<tbody>
 						<tr>
-							<td colspan="2" align="center" class="sidelinksheader">
-								<b>Script </b><c:out value="${server['Script ID']}" />
-							</td>
+							<td colspan="2" align="center" class="sidelinksheader2"><b>Running
+							Script </b><c:out value="${script['Script ID']}" /></td>
 						</tr>
-						<c:forEach items="${server}" var="val">
-						<tr>
-							<td class="serverattrname"><c:out value="${val.key}" /></td>
-							<td><c:out value="${val.value}" /></td>
-						</tr>
+						<c:forEach items="${script}" var="val">
+							<tr>
+								<td class="serverattrname"><c:out value="${val.key}" /></td>
+								<td><c:out value="${val.value}" /></td>
+							</tr>
 						</c:forEach>
-					</table>
-				</td>
-				
-				
-		</tr>
 
-				<tr>
-				<td  align="center">
-							<a
+
+					</tbody>
+				</table>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				<table class="snavi">
+					<tr>
+
+						<td align="center"><a
 							href="<c:url value="/app">
 						<c:param name="action" value="getRunningScriptDetail"/>
-						<c:param name="scriptid" value="${server['Script ID']}"/>
+						<c:param name="scriptid" value="${script['Script ID']}"/>
 							</c:url>"
-							class="actionlink">Get running script detailed info</a>
-					</td>
-				
-					<td  align="center">
-							<a
+							class="actionlink">Get detailed info</a></td>
+
+						<td align="center"><a
 							href="<c:url value="/app">
 						<c:param name="action" value="killScript"/>
-						<c:param name="scriptid" value="${server['Script ID']}"/>
+						<c:param name="scriptid" value="${script['Script ID']}"/>
 							</c:url>"
-							class="actionlink">Kill script</a>
-					</td>
-				</tr>
-				<tr>
-					<td colspan="2">
-							<hr width="80%" align="center" size="1">
-					</td>
-				</tr>
-				
-
-				
-				</c:forEach>
+							class="actionlink">Kill script</a></td>	
+					</tr>
+				</table>
+				</td>
 
 
 
+			</tr>
+			<tr>
+				<td>&nbsp;</td>
+			</tr>
+		</c:forEach>
+
+	</tbody>
+</table>
 
 
-			</table>
 </div>

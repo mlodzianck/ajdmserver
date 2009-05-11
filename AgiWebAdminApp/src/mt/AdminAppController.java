@@ -201,7 +201,7 @@ public class AdminAppController extends MultiActionController {
 			
 		}
 		mv.addObject("scriptsList",scriptsList);
-		mv.addObject("pageTitle","Configured scripts");
+		mv.addObject("pageTitle","Configured scripts for domain "+domain);
 
 		mv.addObject("contentPage", "configuredScriptsListContent.jsp");
 		mv.setViewName("template");

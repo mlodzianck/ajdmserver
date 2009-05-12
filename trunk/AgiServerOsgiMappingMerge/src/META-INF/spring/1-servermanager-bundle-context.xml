@@ -28,8 +28,7 @@
 
 
 
-	<osgi:service id="XMLServerStarter" interface="org.dmagiserver.server.starter.IStarter"
-		depends-on="ServerManagerBean">
+	<osgi:service id="XMLServerStarter" interface="org.dmagiserver.server.starter.IStarter">
 		<bean id="XMLServerStarterBean" class="org.dmagiserver.starter.impl.XMLServerStarter"
 			init-method="installServers">
 			<property name="confFileUnix" value="file:/etc/agi-servers.xml" />

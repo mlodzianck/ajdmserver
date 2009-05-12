@@ -17,10 +17,20 @@
 ajdmserver.jar exposes two services:
    * MappingStrategy
    * ServerManager
+   * ScriptStats
+   * XMLConfStarter
 
 Mapping strategy is a service that implements  [http://asterisk-java.org/latest/apidocs/org/asteriskjava/fastagi/MappingStrategy.html org.asteriskjava.fastagi.MappingStrategy] interface. It discovers and obtains AgiScripts. Each AgiServer has its own MappingStrategy instance. 
 
 ServerManager is a service that runs and stops AgiServers instances. It can be use to list servers and its properties.
+
+ScriptStats service monitors FastAgi servers and scripts that are currently executed. Its features are used in WebAdmin application.
+
+ServerStarter is responsible for creating AgiServer instances on dmServer startup. Servers are defined in XML file.  
+XML files with servers definitions must be located at:
+  *  /etc/agi-servers.xml under Unix systems
+  *  c:\agi-servers.xml under Windows systems
+Before deploying this bundle you have to create config file to have your agi server (or servers) working. Example of such file can be found [ServerStarterXMLConfFile here].
 
 To install services deploy ajdmserver.jar in dmSpringSOurce Server web interface (if server is installed on localhost admin interface is located under link http://localhost:8080/admin)
        

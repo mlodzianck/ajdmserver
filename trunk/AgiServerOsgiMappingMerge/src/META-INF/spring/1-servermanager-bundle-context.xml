@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:osgi="http://www.springframework.org/schema/osgi"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans   
+       http://www.springframework.org/schema/beans/spring-beans.xsd  
+       http://www.springframework.org/schema/osgi  
+       http://www.springframework.org/schema/osgi/spring-osgi.xsd"
+	osgi:default-timeout="5000">
+
+	<osgi:service id="MappingStrategy"
+		interface="org.dmagiserver.mapping.IOSGiMappingFactory">
+		<bean id="MappingStrategyBean" scope="bundle"
+			class="org.dmagiserver.mapping.impl.OSGiMappingFactory">
+			<property name="bundleContext" ref="bundleContext" />
+		</bean>
+
+	</osgi:service>
+
+	<bean id="ServerManagerBean" class="org.dmagiserver.server.manager.impl.ServerManager">
+		<property name="bundleContext" ref="bundleContext" />
+	</bean>
+
+
+	<osgi:service id="ServerManager" ref="ServerManagerBean"
+		interface="org.dmagiserver.server.manager.IServerManager" depends-on="ServerManagerBean">
+		<osgi:registration-listener ref="ServerManagerBean" />
+	</osgi:service>
+
+
+
+	<osgi:service id="XMLServerStarter" interface="org.dmagiserver.server.starter.IStarter"
+		depends-on="ServerManagerBean">
+		<bean id="XMLServerStarterBean" class="org.dmagiserver.starter.impl.XMLServerStarter"
+			init-method="installServers">
+			<property name="confFileUnix" value="file:/etc/agi-servers.xml" />
+			<property name="confFileWin" value="file:/c:\agi-servers.xml" />
+			<property name="serverManager">
+				<osgi:reference interface="org.dmagiserver.server.manager.IServerManager"
+					timeout="3000" depends-on="ServerManager"/>
+			</property>
+		</bean>
+	</osgi:service>
+	
+	<osgi:service id="ScriptStatsService" interface="org.dmagiserver.stats.IScriptStats">
+		<bean class="org.dmagiserver.stats.impl.MemoryScriptStats" />
+	</osgi:service>
+
+
+</beans>

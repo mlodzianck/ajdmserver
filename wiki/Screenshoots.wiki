@@ -1,0 +1,3 @@
+#summary Screencaps fof WebAdmin application for ajdmserver.
+
+[http://ajdmserver.googlecode.com/svn/wiki/configued_scripts.jpg]

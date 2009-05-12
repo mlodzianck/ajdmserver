@@ -3,14 +3,16 @@ Bundle-Version: 1.0.0
 Bundle-Name: ajdmserver Bundle
 Bundle-ManifestVersion: 2
 Bundle-SymbolicName: ajdmserver
-Import-Package: org.asteriskjava.fastagi,
- org.dmagiserver.mapping,
- org.dmagiserver.server,
- org.dmagiserver.server.manager,
+Import-Package: javax.xml.namespace,
+ javax.xml.parsers,
+ javax.xml.xpath,
  org.osgi.framework,
+ org.springframework.beans.factory.config;version="[2.5.6.A,2.5.6.A]",
  org.springframework.core;version="[2.5.6.A,2.5.6.A]",
+ org.springframework.core.io,
  org.springframework.osgi.context,
- org.springframework.osgi.service.exporter
+ org.springframework.osgi.service.exporter,
+ org.w3c.dom
 Import-Bundle: AgiDmSeverLib;version="[1.0.0,1.0.0]",
  org.asteriskjava;version="[0.3.1,0.3.1]"
-
+Spring-Context: spring/*.xml;create-asynchronously:=true

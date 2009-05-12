@@ -1,0 +1,3 @@
+#summary How to use OSGi services in Agi scripts
+
+OSGi fatures can be accessed using BundleContext object. If your script implements BundleContextAware interface ajdmserver sets (invoking setBundleContext method) 

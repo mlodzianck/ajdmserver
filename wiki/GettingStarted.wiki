@@ -36,7 +36,7 @@ To install services deploy ajdmserver.jar in dmSpringSource Server web interface
 
 ----
 =Delpoying WebAdmin=
-WebAdmin is WWW monitoring and administration tool for ajdmserver. Screenshots of it can be found [Screenshots here]
+WebAdmin is quite powerful WWW monitoring and administration tool for ajdmserver. Screenshots of it can be found [Screenshots here]
 
 To deploy this bundle simply upload it to dmServer via dmSpringSource Server web interface
 
@@ -70,3 +70,6 @@ To deploy this bundle simply upload it to dmServer via dmSpringSource Server web
 
         * *IMPORTANT* each script is created in singleton model, it means that one script instance is shared between different requests
         *  Unfortunatly there is no simple way to avoid singleton model (main reason is [http://static.springframework.org/osgi/docs/current/reference/html/known-issues.html#OSGI-237 this] issue) but there is workaround for this- it can be found [AgiScriptFactories here]
+----
+=What next?=
+[agi_osgi Using OSGi architecture in Agi scripts]

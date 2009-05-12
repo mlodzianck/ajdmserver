@@ -24,7 +24,7 @@ Mapping strategy is a service that implements  [http://asterisk-java.org/latest/
 
 ServerManager is a service that runs and stops AgiServers instances. It can be use to list servers and its properties.
 
-ScriptStats service monitors FastAgi servers and scripts that are currently executed. Its features are used in WebAdmin application.
+ScriptStats service monitors FastAgi scripts.. Its features are used in WebAdmin application.
 
 ServerStarter is responsible for creating AgiServer instances on dmServer startup. Servers are defined in XML file.  
 XML files with servers definitions must be located at:
@@ -32,18 +32,15 @@ XML files with servers definitions must be located at:
   *  c:\agi-servers.xml under Windows systems
 Before deploying this bundle you have to create config file to have your agi server (or servers) working. Example of such file can be found [ServerStarterXMLConfFile here].
 
-To install services deploy ajdmserver.jar in dmSpringSOurce Server web interface (if server is installed on localhost admin interface is located under link http://localhost:8080/admin)
-       
+To install services deploy ajdmserver.jar in dmSpringSource Server web interface (if server is installed on localhost admin interface is located under link http://localhost:8080/admin)
+
 ----
-=Deploying XMLConfServerStarter=
-ServerStarter is responsible for creating AgiServer instances on dmServer startup. Servers are defined in XML file.  
-XML files with servers definitions must be located at:
-  *  /etc/agi-servers.xml under Unix systems
-  *  c:\agi-servers.xml under Windows systems
-Before deploying this bundle you have to create config file to have your agi server (or servers) working. Example of such file can be found [ServerStarterXMLConfFile here].
+=Delpoying WebAdmin=
+WebAdmin is WWW monitoring and administration tool for ajdmserver. Screenshots of it can be found [Screenshots here]
 
-To install this bundle deploy it in web admin interface.
-*IMPORTANT* Deploy of this bundle must be done after deploying ajdmserver.jar file
+To deploy this bundle simply upload it to dmServer via dmSpringSource Server web interface
+
+
 ----
 =Configuring Eclipse to work with dmServer==
        * Bring up the Servers view: Window → Show View → Other → Server → Servers.

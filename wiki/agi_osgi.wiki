@@ -44,4 +44,4 @@ Your script's context xml file may look like:
 
 
 }}}
-BundleContext and ServiceREference interfaces are part of org.osgi.framework package, so it must be imported into bundle.
+BundleContext and ServiceReference interfaces are part of org.osgi.framework package, so it must be imported into bundle.

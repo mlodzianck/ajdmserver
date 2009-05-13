@@ -4,11 +4,11 @@ OSGi fatures can be accessed using BundleContext object. If your script implemen
 {{{
 ServiceReference ref= bundleContext.getServiceReference("your class interface name");
 if (ref!=null) {
-                        System.err.println("Reference found-proceeding");
+                        System.err.println("Reference found");
                         ImportedServiceInterface importedService=(ImportedServiceInterface )bundleContext.getService(ref);
                         
                 } else {
-                        System.err.println("Reference not found- stats disabled");
+                        System.err.println("Reference not found");
                 }
 }}}
 

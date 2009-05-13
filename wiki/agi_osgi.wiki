@@ -27,12 +27,12 @@ Your script's context xml file may look like:
        http://www.springframework.org/schema/osgi/spring-osgi.xsd">
 
 
-        <osgi:service id="TestScriptFactory" interface="org.dmagiserver.IAgiScriptFactory">
+        <osgi:service id="TestScriptFactory" interface="org.asteriskjava.fastagi.AgiScript">
                 <osgi:service-properties>
-                        <entry key="agiRequestPattern" value="InboundHandler.php" />
+                        <entry key="agiRequestPattern" value="InboundHandler" />
                         <entry key="agiDomain" value="domain1" />
                 </osgi:service-properties>
-                <bean class="mt.TestScriptFactory" />
+                <bean class="mt.TestScript" />
                 <property name="myExternalServiceReference">
                                 <osgi:reference inteterface="IMyExternalService"/>
                         </property>

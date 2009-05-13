@@ -7,14 +7,14 @@
 ----
 =Installing libraries =
 	Copy (*in order as follows*)
-		* `asterisk-java-0.3.1.jar`
-		* `AgiDmServerLib.jar`
+		* `asterisk-java-0.3.1-bundle.jar`
+		* `AgiDmSeverLib-1.0.1.jar`
 	To directory 
 		`<dm_installation_path>`\repository\libraries\usr\
 
 ----
 =Deploying ajdmserver=
-ajdmserver.jar exposes two services:
+ajdmserver-1.0.1.jar exposes two services:
    * MappingStrategy
    * ServerManager
    * ScriptStats
@@ -40,7 +40,7 @@ WebAdmin is quite powerful WWW monitoring and administration tool for ajdmserver
 
 After deploy www panel is avialable at `http://<host_name>:8080/agi/app`
 
-To deploy this bundle simply upload it to dmServer via dmSpringSource Server web interface
+To deploy this bundle simply upload AgiWebAdminApp-1.0.0.jar to dmServer via dmSpringSource Server web interface
 
 
 ----

@@ -1,3 +1,18 @@
 #summary How to use OSGi services in Agi scripts
 
-OSGi fatures can be accessed using BundleContext object. If your script implements BundleContextAware interface ajdmserver sets (invoking setBundleContext method) 
+OSGi fatures can behttp://code.google.com/p/ajdmserver/w/edit/agi_osgi accessed using BundleContext object. If your script implements BundleContextAware interface ajdmserver sets (invoking setBundleContext method) bundleContext property of your script. Having bundleContext object AgiScript can access services using snippet:
+{{{
+            ServiceReference ref= bundleContext.getServiceReference("your class interface name");
+if (ref!=null) {
+                        System.err.println("Reference found-proceeding");
+                        ImportedServiceInterface importedService=(ImportedServiceInterface )bundleContext.getService(ref);
+                        
+                } else {
+                        System.err.println("Reference not found- stats disabled");
+                }
+}}}
+
+
+
+Alternatively you can import service reference in context xml file. 
+Lets's say that one of your bundles exports service under interface 

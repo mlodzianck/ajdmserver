@@ -93,8 +93,8 @@
 
 
 
-<div id="footer"><a class="left" href="http://www.ajdmserver.pl/"
-	target="_blank">&copy;2009 ajdmserver</a> <a class="right"
+<div id="footer"><a class="left" href="http://code.google.com/p/ajdmserver"
+	target="_blank">ajdmserver</a> <a class="right"
 	href="http://www.satanandco.pl/" target="_blank">Satan&amp;Co.</a></div>
 
 

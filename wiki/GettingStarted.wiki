@@ -38,7 +38,7 @@ To install services deploy ajdmserver.jar in dmSpringSource Server web interface
 =Delpoying WebAdmin=
 WebAdmin is quite powerful WWW monitoring and administration tool for ajdmserver. Screenshots of it can be found [Screenshots here]
 
-After deploy www panel is avialable at http://<host_name>:8080/agi/app
+After deploy www panel is avialable at `http://<host_name>:8080/agi/app`
 
 To deploy this bundle simply upload it to dmServer via dmSpringSource Server web interface
 
